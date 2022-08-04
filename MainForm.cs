@@ -29,14 +29,23 @@ namespace Sekretarz
 
         private void dataEntryButton_Click(object sender, EventArgs e)
         {
-
+            this.treePanel.Visible = !this.treePanel.Visible;
         }
-
+        private void expandButton_Click(object sender, EventArgs e)
+        {
+            this.dataEntryTree.ExpandAll();
+        } 
+        private void collapseButton_Click(object sender, EventArgs e)
+        {
+            this.dataEntryTree.CollapseAll();
+        }
         private void MainForm_Load(object sender, EventArgs e)
         {
             GetCurrDateToCalendar();
             //GetCurrTimeToClock();
             this.WindowState = FormWindowState.Maximized;
+            this.treePanel.Visible = false;
+            this.dataEntryTree.ExpandAll();
         }
         private void ClockTimer_Tick(object sender, EventArgs e)
         {
@@ -61,8 +70,14 @@ namespace Sekretarz
                 string time = hours + ":" + minuts + ":" + seconds;
                 this.TimeLabel.Text = time;
         }
+
+
+
         #endregion
 
-        
+        private void calcButton_Click(object sender, EventArgs e)
+        {
+            this.panel2.Visible = !this.panel2.Visible;
+        }
     }
 }

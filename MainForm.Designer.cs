@@ -29,6 +29,13 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Incoming Letters");
+            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Outgoing Letters");
+            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("My Letters", new System.Windows.Forms.TreeNode[] {
+            treeNode1,
+            treeNode2});
+            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("All Folders", new System.Windows.Forms.TreeNode[] {
+            treeNode3});
             this.topPanel = new System.Windows.Forms.Panel();
             this.helpButton = new System.Windows.Forms.Button();
             this.toolsButton = new System.Windows.Forms.Button();
@@ -47,11 +54,34 @@
             this.bottomPanel = new System.Windows.Forms.Panel();
             this.calcButton = new System.Windows.Forms.Button();
             this.ClockTimer = new System.Windows.Forms.Timer(this.components);
+            this.treePanel = new System.Windows.Forms.Panel();
+            this.expandButton = new System.Windows.Forms.Button();
+            this.collapseButton = new System.Windows.Forms.Button();
+            this.dataEntryTree = new System.Windows.Forms.TreeView();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.nineValButton = new System.Windows.Forms.Button();
+            this.eightValButton = new System.Windows.Forms.Button();
+            this.sevenValButton = new System.Windows.Forms.Button();
+            this.threeValButton = new System.Windows.Forms.Button();
+            this.twoValButton = new System.Windows.Forms.Button();
+            this.sixValButton = new System.Windows.Forms.Button();
+            this.fiveValButton = new System.Windows.Forms.Button();
+            this.fourValButton = new System.Windows.Forms.Button();
+            this.sumValButton = new System.Windows.Forms.Button();
+            this.disivionValButton = new System.Windows.Forms.Button();
+            this.multiplyValButton = new System.Windows.Forms.Button();
+            this.sinValButton = new System.Windows.Forms.Button();
+            this.cosValButton = new System.Windows.Forms.Button();
+            this.substractValButton = new System.Windows.Forms.Button();
+            this.addValButton = new System.Windows.Forms.Button();
+            this.oneValButton = new System.Windows.Forms.Button();
             this.topPanel.SuspendLayout();
             this.sidePanel.SuspendLayout();
             this.panel1.SuspendLayout();
             this.Calendar.SuspendLayout();
             this.bottomPanel.SuspendLayout();
+            this.treePanel.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // topPanel
@@ -239,17 +269,236 @@
             this.calcButton.TabIndex = 0;
             this.calcButton.Text = "Calculator";
             this.calcButton.UseVisualStyleBackColor = true;
+            this.calcButton.Click += new System.EventHandler(this.calcButton_Click);
             // 
             // ClockTimer
             // 
             this.ClockTimer.Enabled = true;
             this.ClockTimer.Tick += new System.EventHandler(this.ClockTimer_Tick);
             // 
+            // treePanel
+            // 
+            this.treePanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.treePanel.Controls.Add(this.expandButton);
+            this.treePanel.Controls.Add(this.collapseButton);
+            this.treePanel.Controls.Add(this.dataEntryTree);
+            this.treePanel.Location = new System.Drawing.Point(171, 72);
+            this.treePanel.Name = "treePanel";
+            this.treePanel.Size = new System.Drawing.Size(377, 503);
+            this.treePanel.TabIndex = 5;
+            this.treePanel.Visible = false;
+            // 
+            // expandButton
+            // 
+            this.expandButton.Location = new System.Drawing.Point(318, 4);
+            this.expandButton.Name = "expandButton";
+            this.expandButton.Size = new System.Drawing.Size(24, 23);
+            this.expandButton.TabIndex = 1;
+            this.expandButton.Text = "E";
+            this.expandButton.UseVisualStyleBackColor = true;
+            this.expandButton.Click += new System.EventHandler(this.expandButton_Click);
+            // 
+            // collapseButton
+            // 
+            this.collapseButton.Location = new System.Drawing.Point(348, 4);
+            this.collapseButton.Name = "collapseButton";
+            this.collapseButton.Size = new System.Drawing.Size(24, 23);
+            this.collapseButton.TabIndex = 1;
+            this.collapseButton.Text = "C";
+            this.collapseButton.UseVisualStyleBackColor = true;
+            this.collapseButton.Click += new System.EventHandler(this.collapseButton_Click);
+            // 
+            // dataEntryTree
+            // 
+            this.dataEntryTree.Location = new System.Drawing.Point(4, 3);
+            this.dataEntryTree.Name = "dataEntryTree";
+            treeNode1.Name = "incomingLetters";
+            treeNode1.Text = "Incoming Letters";
+            treeNode2.Name = "outgoingLetters";
+            treeNode2.Text = "Outgoing Letters";
+            treeNode3.Name = "myLetters";
+            treeNode3.Text = "My Letters";
+            treeNode4.Name = "allFolders";
+            treeNode4.Text = "All Folders";
+            this.dataEntryTree.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
+            treeNode4});
+            this.dataEntryTree.Size = new System.Drawing.Size(368, 495);
+            this.dataEntryTree.TabIndex = 0;
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.nineValButton);
+            this.panel2.Controls.Add(this.eightValButton);
+            this.panel2.Controls.Add(this.sevenValButton);
+            this.panel2.Controls.Add(this.threeValButton);
+            this.panel2.Controls.Add(this.twoValButton);
+            this.panel2.Controls.Add(this.sixValButton);
+            this.panel2.Controls.Add(this.fiveValButton);
+            this.panel2.Controls.Add(this.fourValButton);
+            this.panel2.Controls.Add(this.sumValButton);
+            this.panel2.Controls.Add(this.disivionValButton);
+            this.panel2.Controls.Add(this.multiplyValButton);
+            this.panel2.Controls.Add(this.sinValButton);
+            this.panel2.Controls.Add(this.cosValButton);
+            this.panel2.Controls.Add(this.substractValButton);
+            this.panel2.Controls.Add(this.addValButton);
+            this.panel2.Controls.Add(this.oneValButton);
+            this.panel2.Location = new System.Drawing.Point(708, 344);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(304, 380);
+            this.panel2.TabIndex = 7;
+            // 
+            // nineValButton
+            // 
+            this.nineValButton.Location = new System.Drawing.Point(196, 237);
+            this.nineValButton.Name = "nineValButton";
+            this.nineValButton.Size = new System.Drawing.Size(75, 23);
+            this.nineValButton.TabIndex = 0;
+            this.nineValButton.Text = "9";
+            this.nineValButton.UseVisualStyleBackColor = true;
+            // 
+            // eightValButton
+            // 
+            this.eightValButton.Location = new System.Drawing.Point(115, 237);
+            this.eightValButton.Name = "eightValButton";
+            this.eightValButton.Size = new System.Drawing.Size(75, 23);
+            this.eightValButton.TabIndex = 0;
+            this.eightValButton.Text = "8";
+            this.eightValButton.UseVisualStyleBackColor = true;
+            // 
+            // sevenValButton
+            // 
+            this.sevenValButton.Location = new System.Drawing.Point(34, 237);
+            this.sevenValButton.Name = "sevenValButton";
+            this.sevenValButton.Size = new System.Drawing.Size(75, 23);
+            this.sevenValButton.TabIndex = 0;
+            this.sevenValButton.Text = "7";
+            this.sevenValButton.UseVisualStyleBackColor = true;
+            // 
+            // threeValButton
+            // 
+            this.threeValButton.Location = new System.Drawing.Point(196, 179);
+            this.threeValButton.Name = "threeValButton";
+            this.threeValButton.Size = new System.Drawing.Size(75, 23);
+            this.threeValButton.TabIndex = 0;
+            this.threeValButton.Text = "3";
+            this.threeValButton.UseVisualStyleBackColor = true;
+            // 
+            // twoValButton
+            // 
+            this.twoValButton.Location = new System.Drawing.Point(115, 179);
+            this.twoValButton.Name = "twoValButton";
+            this.twoValButton.Size = new System.Drawing.Size(75, 23);
+            this.twoValButton.TabIndex = 0;
+            this.twoValButton.Text = "2";
+            this.twoValButton.UseVisualStyleBackColor = true;
+            // 
+            // sixValButton
+            // 
+            this.sixValButton.Location = new System.Drawing.Point(196, 208);
+            this.sixValButton.Name = "sixValButton";
+            this.sixValButton.Size = new System.Drawing.Size(75, 23);
+            this.sixValButton.TabIndex = 0;
+            this.sixValButton.Text = "6";
+            this.sixValButton.UseVisualStyleBackColor = true;
+            // 
+            // fiveValButton
+            // 
+            this.fiveValButton.Location = new System.Drawing.Point(115, 208);
+            this.fiveValButton.Name = "fiveValButton";
+            this.fiveValButton.Size = new System.Drawing.Size(75, 23);
+            this.fiveValButton.TabIndex = 0;
+            this.fiveValButton.Text = "5";
+            this.fiveValButton.UseVisualStyleBackColor = true;
+            // 
+            // fourValButton
+            // 
+            this.fourValButton.Location = new System.Drawing.Point(34, 208);
+            this.fourValButton.Name = "fourValButton";
+            this.fourValButton.Size = new System.Drawing.Size(75, 23);
+            this.fourValButton.TabIndex = 0;
+            this.fourValButton.Text = "4";
+            this.fourValButton.UseVisualStyleBackColor = true;
+            // 
+            // sumValButton
+            // 
+            this.sumValButton.Location = new System.Drawing.Point(203, 333);
+            this.sumValButton.Name = "sumValButton";
+            this.sumValButton.Size = new System.Drawing.Size(75, 23);
+            this.sumValButton.TabIndex = 0;
+            this.sumValButton.Text = "=";
+            this.sumValButton.UseVisualStyleBackColor = true;
+            // 
+            // disivionValButton
+            // 
+            this.disivionValButton.Location = new System.Drawing.Point(115, 333);
+            this.disivionValButton.Name = "disivionValButton";
+            this.disivionValButton.Size = new System.Drawing.Size(75, 23);
+            this.disivionValButton.TabIndex = 0;
+            this.disivionValButton.Text = "/";
+            this.disivionValButton.UseVisualStyleBackColor = true;
+            // 
+            // multiplyValButton
+            // 
+            this.multiplyValButton.Location = new System.Drawing.Point(34, 333);
+            this.multiplyValButton.Name = "multiplyValButton";
+            this.multiplyValButton.Size = new System.Drawing.Size(75, 23);
+            this.multiplyValButton.TabIndex = 0;
+            this.multiplyValButton.Text = "*";
+            this.multiplyValButton.UseVisualStyleBackColor = true;
+            // 
+            // sinValButton
+            // 
+            this.sinValButton.Location = new System.Drawing.Point(115, 130);
+            this.sinValButton.Name = "sinValButton";
+            this.sinValButton.Size = new System.Drawing.Size(75, 23);
+            this.sinValButton.TabIndex = 0;
+            this.sinValButton.Text = "sin";
+            this.sinValButton.UseVisualStyleBackColor = true;
+            // 
+            // cosValButton
+            // 
+            this.cosValButton.Location = new System.Drawing.Point(34, 130);
+            this.cosValButton.Name = "cosValButton";
+            this.cosValButton.Size = new System.Drawing.Size(75, 23);
+            this.cosValButton.TabIndex = 0;
+            this.cosValButton.Text = "cos";
+            this.cosValButton.UseVisualStyleBackColor = true;
+            // 
+            // substractValButton
+            // 
+            this.substractValButton.Location = new System.Drawing.Point(115, 304);
+            this.substractValButton.Name = "substractValButton";
+            this.substractValButton.Size = new System.Drawing.Size(75, 23);
+            this.substractValButton.TabIndex = 0;
+            this.substractValButton.Text = "-";
+            this.substractValButton.UseVisualStyleBackColor = true;
+            // 
+            // addValButton
+            // 
+            this.addValButton.Location = new System.Drawing.Point(34, 304);
+            this.addValButton.Name = "addValButton";
+            this.addValButton.Size = new System.Drawing.Size(75, 23);
+            this.addValButton.TabIndex = 0;
+            this.addValButton.Text = "+";
+            this.addValButton.UseVisualStyleBackColor = true;
+            // 
+            // oneValButton
+            // 
+            this.oneValButton.Location = new System.Drawing.Point(34, 179);
+            this.oneValButton.Name = "oneValButton";
+            this.oneValButton.Size = new System.Drawing.Size(75, 23);
+            this.oneValButton.TabIndex = 0;
+            this.oneValButton.Text = "1";
+            this.oneValButton.UseVisualStyleBackColor = true;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1024, 786);
+            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.treePanel);
             this.Controls.Add(this.bottomPanel);
             this.Controls.Add(this.topPanel);
             this.Controls.Add(this.sidePanel);
@@ -270,6 +519,8 @@
             this.Calendar.ResumeLayout(false);
             this.Calendar.PerformLayout();
             this.bottomPanel.ResumeLayout(false);
+            this.treePanel.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -294,5 +545,26 @@
         private Panel panel1;
         private Label TimeLabel;
         private System.Windows.Forms.Timer ClockTimer;
+        private Panel treePanel;
+        private Button expandButton;
+        private Button collapseButton;
+        private TreeView dataEntryTree;
+        private Panel panel2;
+        private Button nineValButton;
+        private Button eightValButton;
+        private Button sevenValButton;
+        private Button threeValButton;
+        private Button twoValButton;
+        private Button sixValButton;
+        private Button fiveValButton;
+        private Button fourValButton;
+        private Button sumValButton;
+        private Button disivionValButton;
+        private Button multiplyValButton;
+        private Button sinValButton;
+        private Button cosValButton;
+        private Button substractValButton;
+        private Button addValButton;
+        private Button oneValButton;
     }
 }
